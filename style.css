@@ -23,7 +23,7 @@ h1 {
 .scores {
   background-color: #c4a484;
   display: flex;
-  border: solid 2px black;
+  /* border: solid 2px black; */
   padding: 100px;
   justify-content: space-evenly;
 }
@@ -39,7 +39,7 @@ h1 {
 .selection {
   background-color: #c4a484;
   display: flex;
-  border: solid 2px black;
+  /* border: solid 2px black; */
   padding: 100px;
   justify-content: space-evenly;
 }
@@ -50,6 +50,11 @@ h1 {
   background-color: #c4a484;
   padding: 10px;
   /* flex-grow: 1; */
+}
+
+.btn__selection:hover {
+  border: 2px solid black;
+  margin: -2px;
 }
 
 .console {
