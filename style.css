@@ -1,0 +1,63 @@
+* {
+  background-color: rgba(206, 198, 198, 0.897);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.body {
+  width: 1500px;
+  max-width: 75%;
+  min-width: 300px;
+  display: flex;
+  border: solid 2px black;
+  margin: 100px;
+  flex-direction: column;
+  background-color: #c4a484;
+  font-size: x-large;
+}
+
+h1 {
+  text-align: center;
+  background-color: #c4a484;
+}
+
+.scores {
+  background-color: #c4a484;
+  display: flex;
+  border: solid 2px black;
+  padding: 100px;
+  justify-content: space-evenly;
+}
+
+.computer-score {
+  background-color: #c4a484;
+}
+
+.player-score {
+  background-color: #c4a484;
+}
+
+.selection {
+  background-color: #c4a484;
+  display: flex;
+  border: solid 2px black;
+  padding: 100px;
+  justify-content: space-evenly;
+}
+
+.btn__selection {
+  max-height: 120px;
+  width: fit-content;
+  background-color: #c4a484;
+  padding: 10px;
+  /* flex-grow: 1; */
+}
+
+.console {
+  /* display: flex; */
+  height: 200px;
+  background-color: #e0d3c7;
+  border: solid 3px #9b8166e5;
+  margin: 10px;
+  padding: 10px 30px;
+  overflow: hidden;
+}
