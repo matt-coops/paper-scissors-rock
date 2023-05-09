@@ -6,6 +6,12 @@ const containerScores = document.querySelector(".scores");
 const containerConsole = document.querySelector(".console");
 const scorePlayer = document.querySelector(".player-score");
 const scoreComputer = document.querySelector(".computer-score");
+const containerPlayerSelection = document.querySelector(
+  ".player--selection--history"
+);
+const containerComputerSelection = document.querySelector(
+  ".computer--selection--history"
+);
 
 // containerResults.textContent = "hello";
 
@@ -15,74 +21,54 @@ let console = "";
 
 function computerPlay() {
   const randoNum = Math.floor(Math.random() * 3) + 1;
-  if (randoNum === 1) {
-    return "paper";
-  } else if (randoNum === 2) {
-    return "scissors";
-  } else {
-    return "rock";
-  }
-}
-
-function playerPlay(selection) {
-  let hand = selection;
-  /* let hand = userResponse.toLowerCase(); */
-  if (hand === "rock" || hand === "paper" || hand === "scissors") {
-    console = (`Player chooses %s`, hand);
-    return hand;
-  } else {
-    let hand = "";
-    console = "You must choose paper, scissors or rock.";
-    containerConsole.textContent = console;
-    playerPlay();
-  }
+  return randoNum;
 }
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return 0;
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
+  } else if (playerSelection === 1 && computerSelection === 3) {
     console =
-      "Computer chooses rock - Paper wraps rock - Player wins this round.\n";
+      "Computer chooses rock - Paper wraps rock - Player wins this round.";
     containerConsole.textContent = console;
     return 1;
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+  } else if (playerSelection === 2 && computerSelection === 1) {
     console =
-      "Computer chooses paper - Scissors slice paper - Player wins this round.\n";
+      "Computer chooses paper - Scissors slice paper - Player wins this round.";
     containerConsole.textContent = console;
     return 1;
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+  } else if (playerSelection === 3 && computerSelection === 2) {
     console =
-      "Computer chooses scissors - Rock smashes scissors - Player wins this round.\n";
+      "Computer chooses scissors - Rock smashes scissors - Player wins this round.";
     containerConsole.textContent = console;
     return 1;
-  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+  } else if (playerSelection === 1 && computerSelection === 2) {
     console =
-      "Computer chooses scissors  - Scissors slice paper - Computer wins this round.\n";
+      "Computer chooses scissors  - Scissors slice paper - Computer wins this round.";
     containerConsole.textContent = console;
     return 2;
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+  } else if (playerSelection === 2 && computerSelection === 3) {
     console =
-      "Computer chooses rock - Rock smashes scissors - Computer wins this round.\n";
+      "Computer chooses rock - Rock smashes scissors - Computer wins this round.";
     containerConsole.textContent = console;
     return 2;
-  } else if (playerSelection === "rock" && computerSelection === "paper") {
+  } else if (playerSelection === 3 && computerSelection === 1) {
     console =
-      "Computer chooses paper - Paper wraps rock - Computer wins this round.\n";
+      "Computer chooses paper - Paper wraps rock - Computer wins this round.";
     containerConsole.textContent = console;
     return 2;
   }
 }
 
 function game(selection) {
-  // loop
   const computerSelection = computerPlay();
-  const playerSelection = playerPlay(selection);
+  const playerSelection = selection;
   let result = playRound(playerSelection, computerSelection);
   if (result === 2) {
     compScore++;
     scoreComputer.textContent = `Computer: ${compScore}`;
     scorePlayer.textContent = `Player: ${playerScore}`;
+    // containerComputerSelection.
   } else if (result === 1) {
     playerScore++;
     scoreComputer.textContent = `Computer: ${compScore}`;
@@ -93,7 +79,6 @@ function game(selection) {
     scoreComputer.textContent = `Computer: ${compScore}`;
     scorePlayer.textContent = `Player: ${playerScore}`;
   }
-  //   }
 
   if (playerScore >= 5) {
     console = "";
@@ -111,7 +96,7 @@ function game(selection) {
 }
 
 btnSelection.addEventListener("click", function (e) {
-  if (e.target.classList.contains("btn--rock")) game("rock");
-  if (e.target.classList.contains("btn--scissors")) game("scissors");
-  if (e.target.classList.contains("btn--paper")) game("paper");
+  if (e.target.classList.contains("btn--scissors")) game(1);
+  if (e.target.classList.contains("btn--paper")) game(2);
+  if (e.target.classList.contains("btn--rock")) game(3);
 });

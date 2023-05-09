@@ -1,11 +1,11 @@
 * {
+  /* display: flex; */
   background-color: rgba(206, 198, 198, 0.897);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .body {
-  width: 1500px;
-  max-width: 75%;
+  width: 1200px;
   min-width: 300px;
   display: flex;
   border: solid 2px black;
@@ -13,6 +13,7 @@
   flex-direction: column;
   background-color: #c4a484;
   font-size: x-large;
+  justify-content: center;
 }
 
 h1 {
@@ -36,6 +37,17 @@ h1 {
   background-color: #c4a484;
 }
 
+.selection--history {
+  display: flex;
+  flex-direction: column;
+}
+
+.selection--history--square {
+  border: solid 1px black;
+  width: 50px;
+  height: 50px;
+}
+
 .selection {
   background-color: #c4a484;
   display: flex;
@@ -53,16 +65,16 @@ h1 {
 }
 
 .btn__selection:hover {
-  border: 2px solid black;
+  /* border: 2px solid black; */
   margin: -2px;
 }
 
 .console {
   /* display: flex; */
-  height: 200px;
+  height: 30px;
   background-color: #e0d3c7;
   border: solid 3px #9b8166e5;
   margin: 10px;
-  padding: 10px 30px;
+  padding: 20px 30px;
   overflow: hidden;
 }
